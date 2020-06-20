@@ -1,4 +1,7 @@
 import time
+import sys
+import utils
+import re
 
 class Ash():
     """
@@ -7,31 +10,22 @@ class Ash():
 
     def __init__(self):
         """
-        Create ash at default position (0,0)
+        Create ash at default position (0,0), initialize explored map and pokemons.
         """
         self.position = [0,0]
-        self.pokemons = 1
+        self.explored_map = set()
+        self.explored_map.add((0,0))
 
-    def get_position(self):
-        """ 
-        Return current Ash position
-        """
-        return self.position
     def get_position_tuple(self):
         """ 
-        Return current Ash position
+        Return current Ash position as tuple
         """
         return (self.position[0], self.position[1])
     def get_pokemons(self):
         """
         Get number of pokemons in Ash's Pokedex
         """
-        return self.pokemons
-    def add_pokemon(self):
-        """
-        Add new pokemon to Ash's Pokedex
-        """
-        self.pokemons += 1
+        return len(self.explored_map)
     def move(self,direction):
         """
         Move ash in argument direction
@@ -44,56 +38,36 @@ class Ash():
             self.position[0] += 1
         if direction == "O":
             self.position[0] -= 1
-        return (self.position[0], self.position[1])
-    def __str__(self):
-        return 'Ash está em ' + str(self.get_position_tuple()) + ' e tem ' + str(self.get_pokemons()) + ' pokemons.'
+        self.explored_map.add(self.get_position_tuple())
 
-class WorldMap():
-    """
-    Create initial map instance.
-    """
-    def __init__(self):
-        self.world_map = [(0,0)]
-    def checkForPokemon(self, position):
-        if position not in self.world_map:
-            self.world_map.append(position)
-            return True
-        else:
-            return False
-    def __str__(self):
-        return 'Casas exploradas: ' + str(self.world_map)
 
 def main():
     ash = Ash()
-    world_map = WorldMap()
-    print("Bem-vindo Ash\n")
+    print("Bem-vindo Ash!")
     while True:
-        sequence = str(input("Introduz a sequência de movimentos desejada(N/S/E/O): "))
-        sequence_list = []
-        for element in sequence:
-            if element in ["N", "S", "E", "O"]:
-                sequence_list.append(element)
-            else:
-                print("Sequência inválida")
-                break
+        sequence = utils.get_input()
+        validated_sequence = utils.validade_sequence(sequence)
+
         start = time.process_time()
-        for direction in sequence_list:
-            if world_map.checkForPokemon(ash.move(direction)):
-                ash.add_pokemon()
-            else:
-                pass
+        if validated_sequence[0]:
+            for direction in validated_sequence[1]:
+                ash.move(direction)
+        else:
+            break
+
         end = time.process_time()
         print(ash.get_pokemons())
         print("time: " + str(end-start))
             
         flag = str(input("\nDeseja Continuar? (s/n) "))
-        if flag == "s":
-            continue
-        elif flag == "n":
-            print("\nAdeus Ash")
+        if re.match("[s]", flag):
+            pass
+        elif re.match("[n]", flag):
+            print("\nAdeus Ash!")
             break
         else:
-            print("Comando inválido\n")
+            print("Comando inválido")
+            break
 
 if __name__ == "__main__":
     main()
