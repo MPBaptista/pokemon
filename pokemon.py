@@ -84,7 +84,7 @@ def main():
                 pass
         end = time.process_time()
         print(ash.get_pokemons())
-        #print(end-start)
+        print("time: " + str(end-start))
             
         flag = str(input("\nDeseja Continuar? (s/n) "))
         if flag == "s":
@@ -94,6 +94,7 @@ def main():
             break
         else:
             print("Comando inválido\n")
+
 if __name__ == "__main__":
     main()
 
