@@ -2,10 +2,10 @@ import re
 
 def read_input():
     """
-    Moves ash in argument direction
+    Read input from stdin
     
-    Args:
-        direction (str): Str of direction to move in.
+    Returns:
+        sequence (str): string read from stdin.
     """
     sequence = str(input("\nIntroduz a sequência de movimentos desejada(N/S/E/O):\n--> "))
     return sequence
@@ -15,7 +15,7 @@ def validate_sequence(sequence):
     Checks if sequence of moves is valid.
     
     Args:
-        sequence (str): string of direction to move in.
+        sequence (str): string of directions to move in.
     
     Returns:
         valid_flag, sequence_list (tuple): tuple of boolean if string is valid and the sequence of moves.
