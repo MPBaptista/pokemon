@@ -1,28 +1,40 @@
-# pokemon
+# Pokemon
 
-Ash goes looking for pokemons in bidimensional field. Each position around him has one pokemon.
+### Introduction
+Ash goes looking for pokemons in bidimensional field. Each position around him has one pokemon. 
+
+## Requirements
+To run this program you need to have Python 3.6.3 installed (or the most 
+recently available).
 
 ## Installation
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
+### Clone
+The first step is to clone the repository into your desired location. 
+- Clone this repo to your local machine using `https://github.com/MPBaptista/pokemon.git`
 
 ## Usage
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+Run python file (use local Python version accordingly to requirements).
+```shell
+python3 pokemon.py
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Example
 
-Please make sure to update tests as appropriate.
+```shell
+python3 pokemon.py
+
+Bem-vindo Ash!
+
+Introduz a sequência de movimentos desejada(N/S/E/O):
+--> N
+2
+Deseja Continuar? (s/n) n
+
+Adeus Ash!
+```
+
+## Authors
+* **Miguel Baptista**
 
 ## License
 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.txt)
