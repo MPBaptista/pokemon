@@ -11,11 +11,11 @@ class TestPokemon(unittest.TestCase):
         Returns OK when successful.
         """
         ash = pokemon.Ash()
-        self.assertEqual(ash.get_position_tuple(), (0,0))
+        self.assertEqual(ash.get_position(), (0,0))
         self.assertEqual(ash.get_pokemons(), 1)
         for i in range(0,1000000):
             ash.move("N")
-        self.assertEqual(ash.get_position_tuple(), (0,1000000))
+        self.assertEqual(ash.get_position(), (0,1000000))
         self.assertEqual(ash.get_pokemons(), 1000001)   
 
 

@@ -33,20 +33,19 @@ python3 -m unittest --v test_utils.py
 ```
 ## Example
 
-```sh
-python3 pokemon.py -b
+    python3 pokemon.py -b
 
-Bem-vindo Ash!
+    Bem-vindo Ash!
 
-Introduz a sequência de movimentos desejada(N/S/E/O):
---> N
-2
-Tempo de execução: 2.0524999999993465e-05 segundos
+    Introduz a sequência de movimentos desejada(N/S/E/O):
+    --> N
+    2
+    Tempo de execução: 2.0524999999993465e-05 segundos
 
-Continuar(s/n): n
+    Continuar(s/n): n
 
-Adeus Ash!
-```
+    Adeus Ash!
+
 
 ## Notes
 In regards to the definition of the bi-dimensional field a set proved to be the best way. Python set allows the addition of a new value, a numpy array has to create a new array for each new value, so the set proves to be vastly faster and simpler. 
@@ -54,7 +53,7 @@ In regards to the definition of the bi-dimensional field a set proved to be the 
 Comparatively to a list a set still proves its advantages, being that the set only allows adding unique values the complexity of adding a value is only O(1), to add a new value to a list the list has to be checked for the value ```if x not in list: add``` raising the complexity to O(N).
 
 ## Limits/Pitfalls
-1. Due to limitations of all POSIX compilant command-lines the max input the program will behave correctly to is 4095 moves, to bypass this simply input successive move sequences of up to 4095 moves.
+1. Due to limitations of all POSIX compilant command-lines the max input the program will behave correctly to is 4095 moves, to bypass this simply input successive move sequences of up to 4095 moves each.
 
 ## Author
 * **Miguel Baptista**
