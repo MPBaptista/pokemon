@@ -2,33 +2,30 @@ import time
 import sys
 import utils
 import re
+import argparse
 
 class Ash():
-    """
-    Create initial Ash instance.
-    """
 
     def __init__(self):
-        """
-        Create ash at default position (0,0), initialize explored map and pokemons.
-        """
+        """Creates ash instance at default position (0,0), initialize explored map and pokemons."""
         self.position = [0,0]
         self.explored_map = set()
         self.explored_map.add((0,0))
 
     def get_position_tuple(self):
-        """ 
-        Return current Ash position as tuple
-        """
+        """Returns current Ash position as tuple"""
         return (self.position[0], self.position[1])
+
     def get_pokemons(self):
-        """
-        Get number of pokemons in Ash's Pokedex
-        """
+        """Gets number of pokemons in Ash's Pokedex"""
         return len(self.explored_map)
+
     def move(self,direction):
         """
-        Move ash in argument direction
+        Moves ash in argument direction
+        
+        Args:
+            direction (str): string of direction to move in.
         """
         if direction == "N":
             self.position[1] += 1
@@ -42,27 +39,34 @@ class Ash():
 
 
 def main():
+    # Parse program flags
+    parser = argparse.ArgumentParser(description="Ash goes looking for pokemons in bidimensional field. Each position around him has one single pokemon.")
+    parser.add_argument("-b", "--benchmark", action="store_true", help="benchmark time")
+    args = parser.parse_args()
+
     ash = Ash()
     print("Bem-vindo Ash!")
     while True:
         sequence = utils.get_input()
-        validated_sequence = utils.validade_sequence(sequence)
+        validated_sequence = utils.validate_sequence(sequence)
 
         start = time.process_time()
         if validated_sequence[0]:
             for direction in validated_sequence[1]:
                 ash.move(direction)
         else:
+            print("Sequência inválida")
             break
-
         end = time.process_time()
+
         print(ash.get_pokemons())
-        print("time: " + str(end-start))
+        if args.benchmark:
+            print("Tempo de execução: " + str(end-start) + " segundos")
             
-        flag = str(input("\nDeseja Continuar? (s/n) "))
-        if re.match("[s]", flag):
+        continue_flag = str(input("\nContinuar(s/n): "))
+        if re.match("[s]", continue_flag) and len(continue_flag) == 1:
             pass
-        elif re.match("[n]", flag):
+        elif re.match("[n]", continue_flag) and len(continue_flag) == 1:
             print("\nAdeus Ash!")
             break
         else:
