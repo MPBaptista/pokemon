@@ -13,4 +13,5 @@ def validade_sequence(sequence):
         else:
             print("Sequência inválida")
             flag = False
+            break
     return (flag, sequence_list)
