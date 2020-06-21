@@ -10,7 +10,7 @@ recently available).
 ## Installation
 ### Clone
 The first step is to clone the repository into your desired location. 
-- Clone this repo to your local machine using `https://github.com/MPBaptista/pokemon.git`
+- Clone this repo to your local machine as follows `git clone https://github.com/MPBaptista/pokemon.git`
 
 ## Usage
 ### Run
