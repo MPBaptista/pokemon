@@ -8,13 +8,13 @@ class Ash():
 
     def __init__(self):
         """Creates ash instance at default position (0,0), initialize explored map and pokemons."""
-        self.position = [0,0]
+        self.position = (0,0)
         self.explored_map = set()
-        self.explored_map.add((0,0))
+        self.explored_map.add(self.position)
 
-    def get_position_tuple(self):
+    def get_position(self):
         """Returns current Ash position as tuple"""
-        return (self.position[0], self.position[1])
+        return self.position
 
     def get_pokemons(self):
         """Gets number of pokemons in Ash's Pokedex"""
@@ -28,14 +28,14 @@ class Ash():
             direction (str): string of direction to move in.
         """
         if direction == "N":
-            self.position[1] += 1
+            self.position = (self.position[0], self.position[1] + 1)
         if direction == "S":
-            self.position[1] -= 1
+            self.position = (self.position[0], self.position[1] - 1)
         if direction == "E":
-            self.position[0] += 1
+            self.position = (self.position[0] + 1, self.position[1])
         if direction == "O":
-            self.position[0] -= 1
-        self.explored_map.add(self.get_position_tuple())
+            self.position = (self.position[0] - 1, self.position[1])
+        self.explored_map.add(self.get_position())
 
 
 def main():
@@ -47,7 +47,7 @@ def main():
     ash = Ash()
     print("Bem-vindo Ash!")
     while True:
-        sequence = utils.get_input()
+        sequence = utils.read_input()
         validated_sequence = utils.validate_sequence(sequence)
 
         start = time.process_time()
@@ -59,6 +59,7 @@ def main():
             break
         end = time.process_time()
 
+        print(ash.get_position())
         print(ash.get_pokemons())
         if args.benchmark:
             print("Tempo de execução: " + str(end-start) + " segundos")

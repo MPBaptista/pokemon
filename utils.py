@@ -1,6 +1,6 @@
 import re
 
-def get_input():
+def read_input():
     """
     Moves ash in argument direction
     
