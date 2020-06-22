@@ -10,7 +10,7 @@ def read_input():
     sequence = str(input("\nIntroduz a sequência de movimentos desejada(N/S/E/O):\n--> "))
     return sequence
 
-def validate_sequence(sequence):
+def parse_input(sequence):
     """
     Checks if sequence of moves is valid.
     

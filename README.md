@@ -23,11 +23,21 @@ or run and display time benchmark.
 python3 pokemon.py -b
 ```
 ### Unit Tests
-Test Ash mehods.
+#### For pokemon.py methods.
+1. Tests get_position() in initial position;
+2. Tests get_pokemons() in initial position;
+3. Tests move() with 1 million successive moves;
+4. Tests get_position() after moves;
+5. Tests get_pokemon() after moves;
 ```shell
 python3 -m unittest --v test_pokemon.py 
 ```
-Test utils methods.
+#### For utils.py methods.
+1. Tests parse_input() with string "E";
+2. Tests parse_input() with string "NESO";
+3. Tests parse_input() with string "EQ";
+4. Tests parse_input() with string "QE";
+5. Tests parse_input() with string "1";
 ```shell
 python3 -m unittest --v test_utils.py 
 ```
@@ -40,7 +50,7 @@ python3 -m unittest --v test_utils.py
     Introduz a sequência de movimentos desejada(N/S/E/O):
     --> NNEESSO
     Total de pokemons apanhados: 8
-    Tempo de execução: 3.697499999999465e-05 segundos
+    Tempo de execução: 0.0006053420001990162 segundos
 
     Continuar(s/n): n
 

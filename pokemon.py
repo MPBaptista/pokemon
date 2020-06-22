@@ -37,7 +37,6 @@ class Ash():
             self.position = (self.position[0] - 1, self.position[1])
         self.explored_map.add(self.get_position())
 
-
 def main():
     # Parse program flags
     parser = argparse.ArgumentParser(description="Ash goes looking for pokemons in bidimensional field. Each position around him has one single pokemon.")
@@ -48,19 +47,20 @@ def main():
     print("Bem-vindo Ash!")
     while True:
         sequence = utils.read_input()
-        validated_sequence = utils.validate_sequence(sequence)
+        
+        start = time.perf_counter() #start timer for benchamrk
+        validated_sequence = utils.parse_input(sequence)
 
-        start = time.process_time()
         if validated_sequence[0]:
             for direction in validated_sequence[1]:
                 ash.move(direction)
         else:
             print("Sequência inválida")
             break
-        end = time.process_time()
+        end = time.perf_counter() #end timer for benchmark
 
         print("Total de pokemons apanhados: " + str(ash.get_pokemons()))
-        if args.benchmark:
+        if args.benchmark: #if program in benchmark mode
             print("Tempo de execução: " + str(end-start) + " segundos")
             
         continue_flag = str(input("\nContinuar(s/n): "))
