@@ -59,7 +59,7 @@ def main():
             break
         end = time.process_time()
 
-        print(ash.get_pokemons())
+        print("Total de pokemons apanhados: " + str(ash.get_pokemons()))
         if args.benchmark:
             print("Tempo de execução: " + str(end-start) + " segundos")
             

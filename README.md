@@ -18,7 +18,7 @@ Run python file (use local Python version accordingly to requirements).
 ```shell
 python3 pokemon.py
 ```
-Run and display time benchmark.
+or run and display time benchmark.
 ```shell
 python3 pokemon.py -b
 ```
@@ -38,9 +38,9 @@ python3 -m unittest --v test_utils.py
     Bem-vindo Ash!
 
     Introduz a sequência de movimentos desejada(N/S/E/O):
-    --> N
-    2
-    Tempo de execução: 2.0524999999993465e-05 segundos
+    --> NNEESSO
+    Total de pokemons apanhados: 8
+    Tempo de execução: 3.697499999999465e-05 segundos
 
     Continuar(s/n): n
 
